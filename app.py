@@ -1,6 +1,5 @@
 import streamlit as st
 
-import random
 import numpy as np
 import aubio
 from collections import Counter
