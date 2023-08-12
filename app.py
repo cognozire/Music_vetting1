@@ -1,3 +1,24 @@
+import streamlit as st
+
+import random
+import numpy as np
+import aubio
+from collections import Counter
+
+import os
+def midi_to_note_name(midi_note):
+    note_names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+    note_name = note_names[midi_note % 12]
+    return note_name
+
+st.title("Audio Processing App")
+
+uploaded_file = st.file_uploader("Upload an audio file", type=["mp3", "wav"])
+
+# Dropdown menu with musical notes
+musical_notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
+selected_note = st.selectbox("Select a musical note", musical_notes)
+
 if uploaded_file is not None:
     samplerate = 44100
     win_s = 4096
