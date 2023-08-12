@@ -4,7 +4,7 @@ import random
 import numpy as np
 import aubio
 from collections import Counter
-from scipy.spatial.distance import cosine
+
 import os
 def midi_to_note_name(midi_note):
     note_names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
