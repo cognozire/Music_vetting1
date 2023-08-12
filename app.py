@@ -1,4 +1,5 @@
 import streamlit as st
+import librosa
 import os
 import aubio
 from collections import Counter
@@ -21,7 +22,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.read())
 
     # Convert the uploaded file to WAV format using librosa
-    import librosa
+    
     y, sr = librosa.load(temp_audio_file_path, sr=None)
     temp_wav_file_path = os.path.splitext(temp_audio_file_path)[0] + ".wav"
     librosa.output.write_wav(temp_wav_file_path, y, sr)
