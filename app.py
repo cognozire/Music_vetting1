@@ -1,5 +1,4 @@
 import streamlit as st
-
 import os
 import aubio
 from collections import Counter
@@ -44,12 +43,13 @@ if uploaded_file is not None:
             if read < hop_s:
                 break
         audio_file.close()
-        
+
         # Delete the temporary audio file after processing
         os.remove(temp_audio_file_path)
-        
+
         note_counts = Counter(notes)
         most_common_note = note_counts.most_common(1)[0][0]
+        selected_note = "C"  # Define the selected note here
         if selected_note == most_common_note:
             st.write(f"The given note is {selected_note}.")
         else:
